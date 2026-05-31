@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地獄のパックマン</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-wrapper">
+        <div class="game-container">
+            <!-- 左パネル -->
+            <div class="left-wrapper">
+                <div class="character-panel panel">
+                    <div class="bubble-space">
+                        <div id="speech-bubble" class="speech-bubble hidden"></div>
+                    </div>
+                    <div class="character-container">
+                        <h2 class="char-name">ヴェル13世</h2>
+                        <img src="char1.png" alt="Character" id="game-character">
+                    </div>
+                </div>
+                <div class="stats-panel panel">
+                    <div class="stat-box">
+                        <h2>SCORE</h2>
+                        <div id="score" class="value">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <h2>HIGH SCORE</h2>
+                        <div id="high-score" class="value">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <h2>LEVEL</h2>
+                        <div id="level" class="value">1</div>
+                    </div>
+                    <div class="stat-box">
+                        <h2>LIVES</h2>
+                        <div id="lives" class="value">♥♥♥</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中央: ゲームキャンバス -->
+            <div class="center-panel">
+                <audio id="bgm-1" src="bgm1.mp3"></audio>
+                <audio id="bgm-2" src="bgm2.mp3"></audio>
+                <audio id="bgm-3" src="bgm3.mp3"></audio>
+                <audio id="bgm-4" src="bgm4.mp3"></audio>
+                <audio id="bgm-5" src="bgm5.mp3"></audio>
+                <canvas id="game-board" width="420" height="420"></canvas>
+                <div id="start-screen" class="overlay">
+                    <h1>地獄のパックマン</h1>
+                    <button id="start-btn">START GAME</button>
+                    <p>操作方法:<br>← → ↑ ↓ : 移動<br>Pキー : 一時停止</p>
+                </div>
+                <div id="game-over-screen" class="overlay hidden">
+                    <h1>GAME OVER</h1>
+                    <p>SCORE: <span id="final-score">0</span></p>
+                    <button id="restart-btn">PLAY AGAIN</button>
+                </div>
+                <div id="clear-screen" class="overlay hidden">
+                    <h1>STAGE CLEAR!</h1>
+                    <p>SCORE: <span id="clear-score">0</span></p>
+                    <button id="next-btn">NEXT STAGE</button>
+                </div>
+                <div id="pause-screen" class="overlay hidden">
+                    <h1>PAUSE</h1>
+                    <button id="resume-btn">RESUME</button>
+                </div>
+            </div>
+
+            <!-- 右パネル: BGM -->
+            <div class="right-panel panel">
+                <div class="bgm-control">
+                    <button id="btn-bgm" class="control-btn bgm-btn">🔊</button>
+                    <span class="bgm-label">BGM</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- モバイルコントローラー -->
+        <div id="mobile-controls" class="mobile-controls">
+            <div class="d-pad">
+                <button id="btn-up"    class="control-btn d-up">▲</button>
+                <button id="btn-left"  class="control-btn d-left">◀</button>
+                <button id="btn-down"  class="control-btn d-down">▼</button>
+                <button id="btn-right" class="control-btn d-right">▶</button>
+            </div>
+            <button id="btn-pause" class="control-btn pause-btn">⏸</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
