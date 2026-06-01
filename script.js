@@ -349,6 +349,22 @@ function updatePacman() {
 
     pm.progress += pm.speed;
 
+    // ターン許容ウィンドウ：出発タイルを少し過ぎても、nextDirに曲がれるなら即座に曲がる
+    // （タイミングがシビアでなくなり、操作しやすくなる）
+    const TURN_WINDOW = 0.38;
+    if (pm.progress > 0 && pm.progress <= TURN_WINDOW) {
+        const notReverse = !(pm.nextDir.x === -pm.dir.x && pm.nextDir.y === -pm.dir.y);
+        const notSameDir  = pm.nextDir.x !== pm.dir.x || pm.nextDir.y !== pm.dir.y;
+        if (notReverse && notSameDir) {
+            const enx = wrapTile(pm.tx + pm.nextDir.x);
+            const eny = pm.ty + pm.nextDir.y;
+            if (isPassable(enx, eny, false)) {
+                pm.dir     = { ...pm.nextDir };
+                pm.progress = 0;
+            }
+        }
+    }
+
     if (pm.progress >= 1) {
         pm.tx = wrapTile(pm.tx + pm.dir.x);
         pm.ty = pm.ty + pm.dir.y;
