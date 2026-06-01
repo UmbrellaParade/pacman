@@ -228,7 +228,7 @@ function makeGhost(id, tx, ty, releaseDelay) {
         py: ty * TILE + TILE / 2,
         dir: { x: 0, y: id % 2 === 0 ? -1 : 1 },
         progress: 0,
-        speed: 0.08,
+        speed: 0.06,
         mode: HOUSE,
         releaseTimer: releaseDelay,
         color: GHOST_COLORS[id]
@@ -239,10 +239,10 @@ let ghosts = [];
 
 function resetGhosts() {
     ghosts = [
-        makeGhost(0, 10, 8, 60),
-        makeGhost(1,  9, 8, 180),
-        makeGhost(2, 11, 8, 300),
-        makeGhost(3, 10, 9, 420),
+        makeGhost(0, 10, 8, 120),   // 少し遅めに出現
+        makeGhost(1,  9, 8, 300),
+        makeGhost(2, 11, 8, 480),
+        makeGhost(3, 10, 9, 660),   // 4体目はかなり後から
     ];
 }
 
