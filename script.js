@@ -197,7 +197,7 @@ function showSpeech(text, duration = 2000) {
 // ==============================
 // パックマン
 // ==============================
-const PM_SPEED_BASE = 0.12;
+const PM_SPEED_BASE = 0.08;  // 速度を下げて操作しやすく
 
 let pm = {};
 
@@ -351,7 +351,7 @@ function updatePacman() {
 
     // ターン許容ウィンドウ：出発タイルを少し過ぎても、nextDirに曲がれるなら即座に曲がる
     // （タイミングがシビアでなくなり、操作しやすくなる）
-    const TURN_WINDOW = 0.38;
+    const TURN_WINDOW = 0.5;  // 半タイル分の余裕でどこでも曲がれる
     if (pm.progress > 0 && pm.progress <= TURN_WINDOW) {
         const notReverse = !(pm.nextDir.x === -pm.dir.x && pm.nextDir.y === -pm.dir.y);
         const notSameDir  = pm.nextDir.x !== pm.dir.x || pm.nextDir.y !== pm.dir.y;
