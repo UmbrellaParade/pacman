@@ -488,8 +488,8 @@ button:active {
     #lives.value  { font-size: 0.85rem; }
 
     #game-character {
-        width: 70px;
-        height: 70px;
+        width: 100px;
+        height: 100px;
         object-fit: contain;
     }
 
